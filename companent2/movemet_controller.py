@@ -10,6 +10,8 @@ class Movement_Controller:
             if event.type == KEYDOWN:
                     if event.key == self._controls["right"]:
                         player.moving_right = True
+                    elif event.key == self._controls["left"]:
+                        player.moving_left = True
                     elif event.key == self._controls["up"]:
                         if player.air_timer < 6:
                             player.jumping = True
@@ -38,7 +40,7 @@ class Movement_Controller:
 class Main_Controller(Movement_Controller):
     pass
 
-class Left_Player_Controller:
+class Left_Player_Controller(Movement_Controller):
     def __init__(self):
         self._controls = {
             "left": K_a,
@@ -48,7 +50,7 @@ class Left_Player_Controller:
         super().__init__()
 
 
-class Right_Player_Controller:
+class Right_Player_Controller(Movement_Controller):
     def __init__(self):
         self._controls = {
             "left": K_LEFT,

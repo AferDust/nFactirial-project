@@ -18,8 +18,8 @@ class Sprite:
         self._alive = True
 
     def movement_calculation(self):
-        JUMP_SPEED = -4
-        GRAVITY = 0.3
+        JUMP_SPEED = -6
+        GRAVITY = 0.22
         LATERAL_SPEED = 4
         TERMINAL_VELOCITY = 3
 
@@ -51,16 +51,16 @@ class Sprite:
     def is_dead(self):
         return self._alive is False
 
-class Water_Girl:
+class Water_Girl(Sprite):
     def __init__(self, location):
-        self.image = pygame.image.load('resources/sprites_img/watergirl.png')
-        self.side_image = pygame.image.load('resources/sprites_img/watergirl-side.png')
+        self.image = pygame.image.load('C:/Users/Dias/PycharmProjects/nFactorial-project/resources/sprites_img/watergirl.png')
+        self.side_image = pygame.image.load('C:/Users/Dias/PycharmProjects/nFactorial-project/resources/sprites_img/watergirl-side.png')
         self._type = "water"
         super().__init__(location)
 
-class Fire_Boy:
+class Fire_Boy(Sprite):
     def __init__(self, location):
-        self.image = pygame.image.load('resources/sprites_img/fireboy.png.png')
-        self.side_image = pygame.image.load('resources/sprites_img/fireboy-side.png')
+        self.image = pygame.image.load('C:/Users/Dias/PycharmProjects/nFactorial-project/resources/sprites_img/fireboy.png')
+        self.side_image = pygame.image.load('C:/Users/Dias/PycharmProjects/nFactorial-project/resources/sprites_img/fireboy-side.png')
         self._type = "fire"
         super().__init__(location)
