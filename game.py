@@ -14,7 +14,7 @@ class Game:
         scaled_background_image = pygame.transform.scale(level.screen, (550, 390))
         self.display.blit(scaled_background_image, (0, 0))
 
-        for l in range(3):
+        for l in range(2):
             image = level.titles[l + 1]
 
             title_x = (self.display.get_width() - image.get_width()) / 2
@@ -27,7 +27,6 @@ class Game:
         level_dict = {
             0: "level1",
             1: "level2",
-            2: "level3"
         }
 
         while True:
@@ -37,14 +36,14 @@ class Game:
             if cont.key_press(K_DOWN, events):
                 level_idx += 1
 
-                if level_idx == 3:
+                if level_idx == 2:
                     level_idx = 0
 
             if cont.key_press(K_UP, events):
                 level_idx -= 1
 
                 if level_idx == -1:
-                    level_idx = 2
+                    level_idx = 1
 
             self.display_level_indicator(level, level_idx)
 
@@ -214,8 +213,8 @@ class Game:
 
     @staticmethod
     def level_is_done(doors):
-        is_win = False
+        w = False
         for door in doors:
             if door.is_door_open():
-                is_win = True
-        return is_win
+                w = True
+        return w

@@ -24,6 +24,32 @@ def display_main_page(game, cont):
         if cont.key_press(K_RETURN, pygame.event.get()):
             display_level_page(game, cont)
 
+
+def dispaly_win_page(game, cont):
+    win_page = pygame.image.load('resources/screen-pages/win_screen.png')
+    scaled_background_image = pygame.transform.scale(win_page, (550, 400))
+    win_page.set_colorkey((255, 0, 255))
+    game.display.blit(scaled_background_image, (0, 0))
+
+    while True:
+        game.new_window()
+        if cont.key_press(K_RETURN, pygame.event.get()):
+            display_level_page(game, cont)
+
+def display_lose_page(game, controller, level):
+    lose_page = pygame.image.load('resources/screen-pages/lose_screen.png')
+    lose_page.set_colorkey((255, 0, 255))
+    scaled_background_image = pygame.transform.scale(lose_page, (550, 400))
+    game.display.blit(scaled_background_image, (0, 0))
+    while True:
+        game.new_window()
+        events = pygame.event.get()
+        if controller.key_press(K_RETURN, events):
+            run_game(game, controller, level)
+        if controller.key_press(K_ESCAPE, events):
+            display_level_page(game, controller)
+
+
 def display_level_page(game, cont):
     level_select = Level_Selected()
     level = game.level_select(level_select, cont)
@@ -50,35 +76,20 @@ def run_game(game, cont, level="level1"):
         water_girl_location = (35, 336)
         water_girl = Water_Girl(water_girl_location)
 
-    # if level == "level2":
-    #     board = Board('data/level2.txt')
-    #     gates = []
-    #
-    #     fire_door_location = (390, 48)
-    #     fire_door = FireDoor(fire_door_location)
-    #     water_door_location = (330, 48)
-    #     water_door = WaterDoor(water_door_location)
-    #     doors = [fire_door, water_door]
-    #
-    #     magma_boy_location = (16, 336)
-    #     magma_boy = MagmaBoy(magma_boy_location)
-    #     hydro_girl_location = (35, 336)
-    #     hydro_girl = HydroGirl(hydro_girl_location)
-    #
-    # if level == "level3":
-    #     board = Board('data/level3.txt')
-    #     gates = []
-    #
-    #     fire_door_location = (5 * 16, 4 * 16)
-    #     fire_door = FireDoor(fire_door_location)
-    #     water_door_location = (28 * 16, 4 * 16)
-    #     water_door = WaterDoor(water_door_location)
-    #     doors = [fire_door, water_door]
-    #
-    #     magma_boy_location = (28 * 16, 4 * 16)
-    #     magma_boy = MagmaBoy(magma_boy_location)
-    #     hydro_girl_location = (5 * 16, 4 * 16)
-    #     hydro_girl = HydroGirl(hydro_girl_location)
+    if level == "level2":
+        walls = Walls('resources/level_2')
+        lands = []
+
+        fire_door_location = (5 * 16, 4 * 16)
+        fire_door = Fire_Door(fire_door_location)
+        water_door_location = (28 * 16, 4 * 16)
+        water_door = Water_Door(water_door_location)
+        doors = [fire_door, water_door]
+
+        fire_boy_location = (28 * 16, 4 * 16)
+        fire_boy = Fire_Boy(fire_boy_location)
+        water_girl_location = (5 * 16, 4 * 16)
+        water_girl = Water_Girl(water_girl_location)
 
 
     left_controller = Left_Player_Controller()
@@ -111,13 +122,14 @@ def run_game(game, cont, level="level1"):
 
         game.new_window()
 
+        if cont.key_press(K_ESCAPE, events):
+            display_level_page(game, cont)
+
         if water_girl.is_dead() or fire_boy.is_dead():
-            pygame.quit()
-            sys.exit()
+            display_lose_page(game, cont, level)
 
         if game.level_is_done(doors):
-            pygame.quit()
-            sys.exit()
+            dispaly_win_page(game, cont)
 
         for event in events:
             if event.type == QUIT:
