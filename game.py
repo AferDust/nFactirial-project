@@ -213,8 +213,8 @@ class Game:
 
     @staticmethod
     def level_is_done(doors):
-        w = False
+        w = True
         for door in doors:
-            if door.is_door_open():
-                w = True
+            if not door.is_door_open():
+                w = False
         return w

@@ -12,7 +12,7 @@ class Doors:
 
     def load_img(self):
         self.frame_image = pygame.image.load("C:/Users/Dias/PycharmProjects/nFactorial-project/resources/doors_img/frame.png")
-        self.frame_image.set_colorkey((245, 0, 245))
+        self.frame_image.set_colorkey((255, 0, 255))
         self.door_background = pygame.image.load("C:/Users/Dias/PycharmProjects/nFactorial-project/resources/doors_img/background.png")
 
     def set_rec(self):
@@ -28,7 +28,7 @@ class Doors:
         return self._door_open
 
     def raise_door(self):
-        DOOR_SPEED = 1.1
+        DOOR_SPEED = 1.5
         door_x = self.door_location[0]
         door_y = self.door_location[1]
         if self.player_at_door and not self._door_open:

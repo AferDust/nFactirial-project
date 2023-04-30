@@ -60,6 +60,21 @@ def display_level_page(game, cont):
 def run_game(game, cont, level="level1"):
     if level == "level1":
         walls = Walls('resources/level_1')
+        lands = []
+
+        fire_door_location = (5 * 16, 4 * 16)
+        fire_door = Fire_Door(fire_door_location)
+        water_door_location = (28 * 16, 4 * 16)
+        water_door = Water_Door(water_door_location)
+        doors = [fire_door, water_door]
+
+        fire_boy_location = (28 * 16, 4 * 16)
+        fire_boy = Fire_Boy(fire_boy_location)
+        water_girl_location = (5 * 16, 4 * 16)
+        water_girl = Water_Girl(water_girl_location)
+
+    if level == "level2":
+        walls = Walls('resources/level_2')
         gate_location = (285, 128)
         plate_locations = [(190, 168), (390, 168)]
         land = Landscape(gate_location, plate_locations)
@@ -74,21 +89,6 @@ def run_game(game, cont, level="level1"):
         fire_boy_location = (16, 336)
         fire_boy = Fire_Boy(fire_boy_location)
         water_girl_location = (35, 336)
-        water_girl = Water_Girl(water_girl_location)
-
-    if level == "level2":
-        walls = Walls('resources/level_2')
-        lands = []
-
-        fire_door_location = (5 * 16, 4 * 16)
-        fire_door = Fire_Door(fire_door_location)
-        water_door_location = (28 * 16, 4 * 16)
-        water_door = Water_Door(water_door_location)
-        doors = [fire_door, water_door]
-
-        fire_boy_location = (28 * 16, 4 * 16)
-        fire_boy = Fire_Boy(fire_boy_location)
-        water_girl_location = (5 * 16, 4 * 16)
         water_girl = Water_Girl(water_girl_location)
 
 
