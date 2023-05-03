@@ -12,10 +12,10 @@ class Landscape:
         self.set_rec()
 
     def load_img(self):
-        self.gate_image = pygame.image.load('C:/Users/Dias/PycharmProjects/nFactorial-project/resources/gate_and_plate/gate.png')
+        self.gate_image = pygame.image.load("resources/gate_and_plate/gate.png")
         self.gate_image.set_colorkey((245, 0, 245))
 
-        self.plate_image = pygame.image.load('C:/Users/Dias/PycharmProjects/nFactorial-project/resources/gate_and_plate/plate.png')
+        self.plate_image = pygame.image.load("resources/gate_and_plate/plate.png")
         self.plate_image.set_colorkey((245, 0, 245))
 
     def set_rec(self):

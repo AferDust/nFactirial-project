@@ -12,12 +12,12 @@ class Walls:
         self.set_solid_blocks()
 
     def load_img(self):
-        self._background = pygame.image.load('C:/Users/Dias/PycharmProjects/nFactorial-project/resources/walls-and-liquid_img/background-wall.png')
+        self._background = pygame.image.load("resources/walls-and-liquid_img/background-wall.png")
         self._board_textures = {
-            "100": pygame.image.load('C:/Users/Dias/PycharmProjects/nFactorial-project/resources/walls-and-liquid_img/wall.png'),
-            "2": pygame.image.load('C:/Users/Dias/PycharmProjects/nFactorial-project/resources/walls-and-liquid_img/lava.png'),
-            "3": pygame.image.load('C:/Users/Dias/PycharmProjects/nFactorial-project/resources/walls-and-liquid_img/water.png'),
-            "4": pygame.image.load('C:/Users/Dias/PycharmProjects/nFactorial-project/resources/walls-and-liquid_img/slize.png')
+            "100": pygame.image.load("resources/walls-and-liquid_img/wall.png"),
+            "2": pygame.image.load("resources/walls-and-liquid_img/lava.png"),
+            "3": pygame.image.load("resources/walls-and-liquid_img/water.png"),
+            "4": pygame.image.load("resources/walls-and-liquid_img/slize.png")
         }
         for texture in self._board_textures.keys():
             self._board_textures[texture].set_colorkey((255, 0, 255))

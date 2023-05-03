@@ -11,9 +11,9 @@ class Doors:
         self.set_rec()
 
     def load_img(self):
-        self.frame_image = pygame.image.load("C:/Users/Dias/PycharmProjects/nFactorial-project/resources/doors_img/frame.png")
+        self.frame_image = pygame.image.load("resources/doors_img/frame.png")
         self.frame_image.set_colorkey((255, 0, 255))
-        self.door_background = pygame.image.load("C:/Users/Dias/PycharmProjects/nFactorial-project/resources/doors_img/background.png")
+        self.door_background = pygame.image.load("resources/doors_img/background.png")
 
     def set_rec(self):
         x_cord = self.door_location[0]
@@ -49,7 +49,7 @@ class Fire_Door(Doors):
         self.background_location = door_location
         self.frame_location = (door_location[0] - CHUNK_SIZE, door_location[1] - 2 * CHUNK_SIZE)
 
-        self.door_image = pygame.image.load("C:/Users/Dias/PycharmProjects/nFactorial-project/resources/doors_img/fire_door.png")
+        self.door_image = pygame.image.load("resources/doors_img/fire_door.png")
         super().__init__()
 
 
@@ -61,5 +61,5 @@ class Water_Door(Doors):
         self.background_location = door_location
         self.frame_location = (door_location[0] - CHUNK_SIZE, door_location[1] - 2 * CHUNK_SIZE)
 
-        self.door_image = pygame.image.load("C:/Users/Dias/PycharmProjects/nFactorial-project/resources/doors_img/water_door.png")
+        self.door_image = pygame.image.load("resources/doors_img/water_door.png")
         super().__init__()
